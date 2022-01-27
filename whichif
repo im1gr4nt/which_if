@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 #check which interface is default and show its configuration 
-route 2> /dev/null | grep "default" | sed 's/  */ /g' | cut -d" " -f8 | xargs ifconfig 2> /dev/null
+ip route | grep "default" | sed 's/  */ /g' | cut -d" " -f8 | sudo xargs ifconfig 2> /dev/null
 
 if [[ $? == 2 ]]; then
 	echo "Use sudo to execute this command"

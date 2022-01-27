@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+#check how many interfaces are default 
+wc="ip route | grep default | wc -l"
+
+eval "$wc" > /dev/null
+
+#conditional in case when more than one interface is default
+if [[ "$wc" -eq 2 ]]; then
+	echo YES
+else 
+	echo NO
+fi
