@@ -1,13 +1,12 @@
 #!/usr/bin/bash
 
 #check how many interfaces are default 
-wc="ip route | grep default | wc -l"
-
-eval "$wc" > /dev/null
-
+wc="$(ip route | grep default | wc -l)"
+#eval "$wc"
+one="1"
 #conditional in case when more than one interface is default
-if [[ "$wc" -eq 2 ]]; then
-	echo YES
+if [ "$wc" = "$one" ]; then
+	ip route | grep default | cut -d" " -f5 | xargs ip addr show dev
 else 
 	echo NO
 fi
