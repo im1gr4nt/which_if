@@ -1,4 +1,4 @@
-# which_if
+# which_interace
 Show currently working network interface 
 
 
@@ -7,4 +7,5 @@ Show currently working network interface
 ```bash
 wif
 ```
-:wq
+
+
